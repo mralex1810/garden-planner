@@ -1,0 +1,174 @@
+.sync-manager {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sync-manager h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+.sync-section {
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.sync-section h4 {
+  margin: 0 0 0.5rem 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+.sync-description {
+  margin: 0 0 1rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.export-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #4a7c59;
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.export-btn:hover:not(:disabled) {
+  background: #5a9c6b;
+}
+
+.export-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.qr-container {
+  margin-top: 1rem;
+  text-align: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 4px;
+}
+
+.qr-label {
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+  color: #333;
+}
+
+.qr-code {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background: white;
+}
+
+.qr-hint {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.file-input-label {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem;
+  background: #f0f8f0;
+  border: 2px dashed #4a7c59;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1rem;
+}
+
+.file-input-label:hover {
+  background: #e8f5e9;
+  border-color: #5a9c6b;
+}
+
+.file-input {
+  display: none;
+}
+
+.json-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.json-input-container label {
+  font-weight: 500;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.json-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  resize: vertical;
+}
+
+.json-input:focus {
+  outline: none;
+  border-color: #4a7c59;
+}
+
+.import-status {
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.import-status.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #4caf50;
+}
+
+.import-status.error {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef5350;
+}
+
+.sync-info {
+  padding: 1rem;
+  background: #fff9e6;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+}
+
+.info-title {
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.sync-info ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  color: #555;
+}
+
+.sync-info li {
+  margin: 0.25rem 0;
+}
+
+.warning-text {
+  margin: 0.75rem 0 0 0;
+  font-size: 0.85rem;
+  color: #d32f2f;
+  font-weight: 500;
+}

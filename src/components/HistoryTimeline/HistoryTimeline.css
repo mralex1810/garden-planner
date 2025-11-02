@@ -1,0 +1,119 @@
+.history-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.add-care-btn {
+  width: 100%;
+  padding: 0.6rem;
+  background: #4a7c59;
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.add-care-btn:hover {
+  background: #5a9c6b;
+}
+
+.care-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.care-form select,
+.care-form input,
+.care-form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.care-form button {
+  padding: 0.5rem;
+  background: #4a7c59;
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.care-form button:hover {
+  background: #5a9c6b;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.history-item {
+  padding: 0.75rem;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.history-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.history-type {
+  font-weight: 600;
+  color: #333;
+}
+
+.history-date {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.delete-history-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  color: #999;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.delete-history-btn:hover {
+  background: #e0e0e0;
+  color: #d32f2f;
+}
+
+.history-plant {
+  font-size: 0.85rem;
+  color: #4a7c59;
+  margin-bottom: 0.25rem;
+}
+
+.history-notes {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+.empty-history {
+  text-align: center;
+  padding: 1.5rem;
+  color: #999;
+  font-style: italic;
+}

@@ -1,0 +1,1901 @@
+{
+  "garden": [
+    {
+      "width": 50,
+      "height": 50,
+      "updatedAt": 1762000484403,
+      "id": 1
+    },
+    {
+      "width": 40,
+      "height": 50,
+      "updatedAt": 1761998530762,
+      "id": 2
+    }
+  ],
+  "objects": [
+    {
+      "type": "bed",
+      "x": 36.6,
+      "y": 7.2,
+      "width": 7.1467116078547175,
+      "height": 18.6,
+      "rotation": 0,
+      "createdAt": 1761998816289,
+      "updatedAt": 1762011416990,
+      "id": 3
+    },
+    {
+      "type": "bed",
+      "x": 36.7,
+      "y": 29.6,
+      "width": 6.5,
+      "height": 19,
+      "rotation": 0,
+      "createdAt": 1762001267194,
+      "updatedAt": 1762011500849,
+      "id": 7
+    },
+    {
+      "type": "bed",
+      "x": 18.7,
+      "y": 29.539999389648436,
+      "width": 14.8,
+      "height": 9.460000610351562,
+      "rotation": 0,
+      "createdAt": 1762001412379,
+      "updatedAt": 1762004593193,
+      "id": 8
+    },
+    {
+      "type": "bed",
+      "x": 6,
+      "y": 29.1,
+      "width": 12.3,
+      "height": 19.2,
+      "rotation": 0,
+      "createdAt": 1762001415671,
+      "updatedAt": 1762004619148,
+      "id": 9
+    },
+    {
+      "type": "greenhouse",
+      "x": 18.3,
+      "y": 29.3,
+      "width": 15.000000000000004,
+      "height": 18.5,
+      "rotation": 0,
+      "createdAt": 1762001790970,
+      "updatedAt": 1762007232638,
+      "id": 11
+    },
+    {
+      "type": "path",
+      "x": 42.9,
+      "y": 29.839999389648437,
+      "width": 3.5,
+      "height": 18.160000610351563,
+      "rotation": 0,
+      "createdAt": 1762002664748,
+      "updatedAt": 1762011419301,
+      "id": 13
+    },
+    {
+      "type": "path",
+      "x": 33.5,
+      "y": 29,
+      "width": 3.2,
+      "height": 19.1,
+      "rotation": 0,
+      "createdAt": 1762002666804,
+      "updatedAt": 1762004486841,
+      "id": 14
+    },
+    {
+      "type": "path",
+      "x": 3.2,
+      "y": 2.3,
+      "width": 2.3,
+      "height": 44.939999389648435,
+      "rotation": 0,
+      "createdAt": 1762002678664,
+      "updatedAt": 1762004602981,
+      "id": 15
+    },
+    {
+      "type": "bush",
+      "x": 6.6,
+      "y": 11.539999389648433,
+      "width": 5.330322757844005,
+      "height": 3.849677547331781,
+      "rotation": 0,
+      "createdAt": 1762004045401,
+      "updatedAt": 1762011426783,
+      "id": 17
+    },
+    {
+      "type": "barrel",
+      "x": 17.6,
+      "y": 27.339999389648437,
+      "width": 2.4,
+      "height": 2.3,
+      "rotation": 0,
+      "createdAt": 1762004568478,
+      "updatedAt": 1762004571579,
+      "id": 18
+    },
+    {
+      "type": "bush",
+      "x": 17.256507532768154,
+      "y": 14.573492009468168,
+      "width": 5.3524038461538455,
+      "height": 6.547596153846153,
+      "rotation": 0,
+      "createdAt": 1762011450825,
+      "updatedAt": 1762011476239,
+      "id": 19
+    },
+    {
+      "type": "rest",
+      "x": 17.11516137892206,
+      "y": 1.514838163314323,
+      "width": 17.03035714285711,
+      "height": 11.869642857142834,
+      "rotation": 0,
+      "createdAt": 1762011470355,
+      "updatedAt": 1762011484215,
+      "id": 20,
+      "name": "Дом"
+    },
+    {
+      "type": "rest",
+      "x": 24.48033995035062,
+      "y": 14.649659591885733,
+      "width": 9.900000000000002,
+      "height": 12.400000000000006,
+      "rotation": 0,
+      "createdAt": 1762011487028,
+      "updatedAt": 1762011496730,
+      "id": 21,
+      "name": "Мангальная зона"
+    },
+    {
+      "type": "well",
+      "x": 6.65,
+      "y": 19.95,
+      "width": 6.6,
+      "height": 4.6,
+      "rotation": 0,
+      "createdAt": 1762011537705,
+      "updatedAt": 1762011540617,
+      "id": 22
+    },
+    {
+      "type": "bush",
+      "x": 6.85,
+      "y": 2.15,
+      "width": 9.158806818181818,
+      "height": 8.3875,
+      "rotation": 0,
+      "createdAt": 1762011550609,
+      "updatedAt": 1762011569015,
+      "id": 23
+    }
+  ],
+  "beds": [
+    {
+      "objectId": 3,
+      "createdAt": 1761998816293,
+      "updatedAt": 1762011667492,
+      "id": 2,
+      "plannedPlantId": "beet",
+      "plannedDate": 1761955200000,
+      "plantId": "beet"
+    },
+    {
+      "objectId": 7,
+      "createdAt": 1762001267196,
+      "updatedAt": 1762011506564,
+      "id": 4,
+      "plannedPlantId": "tomato",
+      "plannedDate": 1761955200000,
+      "plantId": "dill"
+    },
+    {
+      "objectId": 8,
+      "createdAt": 1762001412383,
+      "updatedAt": 1762011627573,
+      "id": 5,
+      "plantId": "cabbage",
+      "plannedPlantId": "tomato",
+      "plannedDate": 1761955200000
+    },
+    {
+      "objectId": 9,
+      "createdAt": 1762001415676,
+      "updatedAt": 1762001464782,
+      "id": 6,
+      "plantId": "carrot",
+      "plannedPlantId": "onion",
+      "plannedDate": 1761955200000
+    }
+  ],
+  "plants": [
+    {
+      "id": "basil",
+      "name": "Basil",
+      "nameRu": "Базилик",
+      "emoji": "🌿",
+      "category": "herb",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "tomato",
+        "pepper"
+      ],
+      "incompatibleWith": [],
+      "season": "summer"
+    },
+    {
+      "id": "beans",
+      "name": "Beans",
+      "nameRu": "Фасоль",
+      "emoji": "🫘",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "cucumber",
+        "potato"
+      ],
+      "incompatibleWith": [
+        "onion",
+        "garlic"
+      ],
+      "season": "summer"
+    },
+    {
+      "id": "beet",
+      "name": "Beet",
+      "nameRu": "Свекла",
+      "emoji": "🍠",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "onion",
+        "cabbage"
+      ],
+      "incompatibleWith": [],
+      "season": "summer"
+    },
+    {
+      "id": "cabbage",
+      "name": "Cabbage",
+      "nameRu": "Капуста",
+      "emoji": "🥬",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "beet",
+        "celery"
+      ],
+      "incompatibleWith": [
+        "tomato"
+      ],
+      "season": "summer"
+    },
+    {
+      "id": "carrot",
+      "name": "Carrot",
+      "nameRu": "Морковь",
+      "emoji": "🥕",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "onion",
+        "tomato",
+        "lettuce"
+      ],
+      "incompatibleWith": [
+        "dill"
+      ],
+      "season": "summer"
+    },
+    {
+      "id": "cucumber",
+      "name": "Cucumber",
+      "nameRu": "Огурец",
+      "emoji": "🥒",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "beans",
+        "peas",
+        "radish"
+      ],
+      "incompatibleWith": [
+        "tomato"
+      ],
+      "season": "summer"
+    },
+    {
+      "id": "dill",
+      "name": "Dill",
+      "nameRu": "Укроп",
+      "emoji": "🌱",
+      "category": "herb",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "cucumber"
+      ],
+      "incompatibleWith": [
+        "carrot"
+      ],
+      "season": "summer"
+    },
+    {
+      "id": "garlic",
+      "name": "Garlic",
+      "nameRu": "Чеснок",
+      "emoji": "🧄",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "tomato",
+        "carrot"
+      ],
+      "incompatibleWith": [
+        "beans",
+        "peas"
+      ],
+      "season": "all"
+    },
+    {
+      "id": "kirov-apple",
+      "name": "Apple Tree",
+      "nameRu": "Яблоня",
+      "emoji": "🍎",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "goodNeighbors": [
+        "kirov-pear",
+        "kirov-plum"
+      ],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-asters",
+      "name": "Asters",
+      "nameRu": "Астры",
+      "emoji": "🌸",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "autumn",
+      "plantingMonths": [
+        4,
+        5,
+        9
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-astilbe",
+      "name": "Astilbe",
+      "nameRu": "Астильбы",
+      "emoji": "🌸",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5,
+        9
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-basil",
+      "name": "Basil",
+      "nameRu": "Базилик",
+      "emoji": "🌿",
+      "category": "herb",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        5
+      ],
+      "goodNeighbors": [
+        "kirov-tomato"
+      ],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-beans",
+      "name": "Beans",
+      "nameRu": "Фасоль",
+      "emoji": "🫘",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        5,
+        6
+      ],
+      "goodNeighbors": [
+        "kirov-potato",
+        "kirov-cucumber"
+      ],
+      "incompatibleWith": [
+        "kirov-onion",
+        "kirov-garlic",
+        "kirov-beet"
+      ]
+    },
+    {
+      "id": "kirov-beet",
+      "name": "Beet",
+      "nameRu": "Свекла",
+      "emoji": "🍠",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        4,
+        5
+      ],
+      "goodNeighbors": [
+        "kirov-onion",
+        "kirov-carrot"
+      ],
+      "incompatibleWith": [
+        "kirov-beans"
+      ]
+    },
+    {
+      "id": "kirov-blackcurrant",
+      "name": "Blackcurrant",
+      "nameRu": "Смородина черная",
+      "emoji": "🫐",
+      "category": "berry",
+      "growthType": "bush",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "goodNeighbors": [
+        "kirov-gooseberry"
+      ],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-cabbage",
+      "name": "Cabbage",
+      "nameRu": "Капуста белокочанная",
+      "emoji": "🥬",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        5
+      ],
+      "goodNeighbors": [
+        "kirov-dill"
+      ],
+      "incompatibleWith": [
+        "kirov-tomato",
+        "kirov-strawberry"
+      ]
+    },
+    {
+      "id": "kirov-carrot",
+      "name": "Carrot",
+      "nameRu": "Морковь",
+      "emoji": "🥕",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        4,
+        5
+      ],
+      "goodNeighbors": [
+        "kirov-onion",
+        "kirov-garlic",
+        "kirov-beet"
+      ],
+      "incompatibleWith": [
+        "kirov-dill"
+      ]
+    },
+    {
+      "id": "kirov-chrysanthemums",
+      "name": "Chrysanthemums",
+      "nameRu": "Хризантемы",
+      "emoji": "🌼",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "autumn",
+      "plantingMonths": [
+        5,
+        6
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-cucumber",
+      "name": "Cucumber",
+      "nameRu": "Огурцы",
+      "emoji": "🥒",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        5,
+        6
+      ],
+      "goodNeighbors": [
+        "kirov-beans",
+        "kirov-dill"
+      ],
+      "incompatibleWith": [
+        "kirov-potato"
+      ]
+    },
+    {
+      "id": "kirov-daylilies",
+      "name": "Daylilies",
+      "nameRu": "Лилейники",
+      "emoji": "🌺",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5,
+        8,
+        9
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-delphiniums",
+      "name": "Delphiniums",
+      "nameRu": "Дельфиниумы",
+      "emoji": "🔵",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5,
+        9
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-dill",
+      "name": "Dill",
+      "nameRu": "Укроп",
+      "emoji": "🌱",
+      "category": "herb",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "goodNeighbors": [
+        "kirov-cabbage",
+        "kirov-cucumber"
+      ],
+      "incompatibleWith": [
+        "kirov-carrot"
+      ]
+    },
+    {
+      "id": "kirov-echinacea",
+      "name": "Echinacea",
+      "nameRu": "Эхинацея",
+      "emoji": "🌸",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        4,
+        5,
+        9
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-eggplant",
+      "name": "Eggplant",
+      "nameRu": "Баклажан",
+      "emoji": "🍆",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        5,
+        6
+      ],
+      "goodNeighbors": [
+        "kirov-pepper"
+      ],
+      "incompatibleWith": [
+        "kirov-potato",
+        "kirov-tomato"
+      ]
+    },
+    {
+      "id": "kirov-garlic",
+      "name": "Garlic",
+      "nameRu": "Чеснок",
+      "emoji": "🧄",
+      "category": "herb",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        9,
+        10,
+        4
+      ],
+      "goodNeighbors": [
+        "kirov-tomato",
+        "kirov-strawberry"
+      ],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-gooseberry",
+      "name": "Gooseberry",
+      "nameRu": "Крыжовник",
+      "emoji": "🟢",
+      "category": "berry",
+      "growthType": "bush",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "goodNeighbors": [
+        "kirov-blackcurrant"
+      ],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-highbush-blueberry",
+      "name": "Highbush Blueberry",
+      "nameRu": "Голубика высокорослая",
+      "emoji": "🫐",
+      "category": "berry",
+      "growthType": "bush",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-honeysuckle",
+      "name": "Honeysuckle",
+      "nameRu": "Жимолость",
+      "emoji": "🫐",
+      "category": "berry",
+      "growthType": "bush",
+      "pack": "kirov_oblast",
+      "season": "spring",
+      "plantingMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-hostas",
+      "name": "Hostas",
+      "nameRu": "Хосты",
+      "emoji": "🌿",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5,
+        8,
+        9
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-hyacinthus",
+      "name": "Hyacinthus",
+      "nameRu": "Гиацинты",
+      "emoji": "💜",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "spring",
+      "plantingMonths": [
+        9,
+        10
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-irises",
+      "name": "Irises",
+      "nameRu": "Ирисы",
+      "emoji": "🌺",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "spring,summer",
+      "plantingMonths": [
+        7,
+        8,
+        9
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-lettuce",
+      "name": "Lettuce",
+      "nameRu": "Салат листовой",
+      "emoji": "🥬",
+      "category": "herb",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "spring,summer",
+      "plantingMonths": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-lilies",
+      "name": "Lilies",
+      "nameRu": "Лилии",
+      "emoji": "🌺",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        9,
+        10
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-marigolds",
+      "name": "Marigolds",
+      "nameRu": "Бархатцы",
+      "emoji": "🌼",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "goodNeighbors": [
+        "kirov-tomato",
+        "kirov-cabbage",
+        "kirov-pepper"
+      ],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-narcissus",
+      "name": "Narcissus",
+      "nameRu": "Нарциссы",
+      "emoji": "🌼",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "spring",
+      "plantingMonths": [
+        9,
+        10
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-nasturtium",
+      "name": "Nasturtium",
+      "nameRu": "Настурция",
+      "emoji": "🌸",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        5
+      ],
+      "goodNeighbors": [
+        "kirov-cabbage"
+      ],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-onion",
+      "name": "Onion",
+      "nameRu": "Лук репчатый",
+      "emoji": "🧅",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5,
+        10,
+        11
+      ],
+      "goodNeighbors": [
+        "kirov-carrot",
+        "kirov-beet",
+        "kirov-tomato"
+      ],
+      "incompatibleWith": [
+        "kirov-peas",
+        "kirov-beans"
+      ]
+    },
+    {
+      "id": "kirov-pansies",
+      "name": "Pansies",
+      "nameRu": "Анютины глазки",
+      "emoji": "💐",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "spring,autumn",
+      "plantingMonths": [
+        2,
+        3,
+        5,
+        6,
+        7
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-parsley",
+      "name": "Parsley",
+      "nameRu": "Петрушка",
+      "emoji": "🌿",
+      "category": "herb",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "all",
+      "plantingMonths": [
+        4,
+        10
+      ],
+      "goodNeighbors": [
+        "kirov-tomato"
+      ],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-pear",
+      "name": "Pear Tree",
+      "nameRu": "Груша",
+      "emoji": "🍐",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "kirov_oblast",
+      "season": "autumn",
+      "plantingMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "goodNeighbors": [
+        "kirov-apple",
+        "kirov-plum"
+      ],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-peas",
+      "name": "Peas",
+      "nameRu": "Горох",
+      "emoji": "🫛",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5
+      ],
+      "goodNeighbors": [
+        "kirov-cucumber"
+      ],
+      "incompatibleWith": [
+        "kirov-onion",
+        "kirov-garlic"
+      ]
+    },
+    {
+      "id": "kirov-peonies",
+      "name": "Peonies",
+      "nameRu": "Пионы",
+      "emoji": "🌸",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "spring,summer",
+      "plantingMonths": [
+        8,
+        9
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-pepper",
+      "name": "Pepper",
+      "nameRu": "Перец",
+      "emoji": "🌶️",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        5,
+        6
+      ],
+      "goodNeighbors": [
+        "kirov-eggplant"
+      ],
+      "incompatibleWith": [
+        "kirov-potato",
+        "kirov-tomato"
+      ]
+    },
+    {
+      "id": "kirov-petunia",
+      "name": "Petunia",
+      "nameRu": "Петуния",
+      "emoji": "🌺",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        2,
+        3,
+        5,
+        6
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-phlox",
+      "name": "Phlox",
+      "nameRu": "Флоксы",
+      "emoji": "🌸",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        4,
+        5,
+        9
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-plum",
+      "name": "Plum Tree",
+      "nameRu": "Слива",
+      "emoji": "🍑",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "goodNeighbors": [
+        "kirov-apple",
+        "kirov-pear"
+      ],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-potato",
+      "name": "Potato",
+      "nameRu": "Картофель",
+      "emoji": "🥔",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5
+      ],
+      "goodNeighbors": [
+        "kirov-beans",
+        "kirov-cabbage"
+      ],
+      "incompatibleWith": [
+        "kirov-tomato",
+        "kirov-eggplant",
+        "kirov-strawberry"
+      ]
+    },
+    {
+      "id": "kirov-raspberry",
+      "name": "Raspberry",
+      "nameRu": "Малина",
+      "emoji": "🫐",
+      "category": "berry",
+      "growthType": "bush",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-rowan",
+      "name": "Rowan",
+      "nameRu": "Рябина обыкновенная",
+      "emoji": "🌺",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "kirov_oblast",
+      "season": "autumn",
+      "plantingMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-sea-buckthorn",
+      "name": "Sea Buckthorn",
+      "nameRu": "Облепиха",
+      "emoji": "🟠",
+      "category": "berry",
+      "growthType": "bush",
+      "pack": "kirov_oblast",
+      "season": "summer,autumn",
+      "plantingMonths": [
+        4,
+        5
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": [
+        "kirov-potato",
+        "kirov-tomato",
+        "kirov-eggplant",
+        "kirov-pepper"
+      ]
+    },
+    {
+      "id": "kirov-sorrel",
+      "name": "Sorrel",
+      "nameRu": "Щавель",
+      "emoji": "🍃",
+      "category": "herb",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "all",
+      "plantingMonths": [
+        4,
+        10
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-spinach",
+      "name": "Spinach",
+      "nameRu": "Шпинат",
+      "emoji": "🥗",
+      "category": "herb",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "spring,autumn",
+      "plantingMonths": [
+        4,
+        8
+      ],
+      "goodNeighbors": [
+        "kirov-strawberry",
+        "kirov-tomato"
+      ],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-strawberry",
+      "name": "Strawberry",
+      "nameRu": "Земляника садовая",
+      "emoji": "🍓",
+      "category": "berry",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        4,
+        5,
+        9
+      ],
+      "goodNeighbors": [
+        "kirov-garlic",
+        "kirov-onion",
+        "kirov-spinach"
+      ],
+      "incompatibleWith": [
+        "kirov-cabbage",
+        "kirov-potato"
+      ]
+    },
+    {
+      "id": "kirov-tomato",
+      "name": "Tomato",
+      "nameRu": "Томаты",
+      "emoji": "🍅",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "summer",
+      "plantingMonths": [
+        5
+      ],
+      "goodNeighbors": [
+        "kirov-basil",
+        "kirov-garlic",
+        "kirov-onion"
+      ],
+      "incompatibleWith": [
+        "kirov-potato",
+        "kirov-eggplant",
+        "kirov-cabbage"
+      ]
+    },
+    {
+      "id": "kirov-tulips",
+      "name": "Tulips",
+      "nameRu": "Тюльпаны",
+      "emoji": "🌷",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "kirov_oblast",
+      "season": "spring",
+      "plantingMonths": [
+        9,
+        10
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "kirov-viburnum",
+      "name": "Viburnum",
+      "nameRu": "Калина обыкновенная",
+      "emoji": "🌺",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "kirov_oblast",
+      "season": "autumn",
+      "plantingMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "goodNeighbors": [],
+      "incompatibleWith": []
+    },
+    {
+      "id": "lettuce",
+      "name": "Lettuce",
+      "nameRu": "Салат",
+      "emoji": "🥬",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "carrot",
+        "radish",
+        "onion"
+      ],
+      "incompatibleWith": [],
+      "season": "spring"
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "nameRu": "Лук",
+      "emoji": "🧅",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "carrot",
+        "tomato",
+        "lettuce"
+      ],
+      "incompatibleWith": [
+        "beans",
+        "peas"
+      ],
+      "season": "all"
+    },
+    {
+      "id": "parsley",
+      "name": "Parsley",
+      "nameRu": "Петрушка",
+      "emoji": "🌿",
+      "category": "herb",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "tomato",
+        "onion"
+      ],
+      "incompatibleWith": [],
+      "season": "all"
+    },
+    {
+      "id": "peas",
+      "name": "Peas",
+      "nameRu": "Горох",
+      "emoji": "🫛",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "cucumber"
+      ],
+      "incompatibleWith": [
+        "onion",
+        "garlic"
+      ],
+      "season": "summer"
+    },
+    {
+      "id": "pepper",
+      "name": "Pepper",
+      "nameRu": "Перец",
+      "emoji": "🌶️",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "basil",
+        "onion"
+      ],
+      "incompatibleWith": [],
+      "season": "summer"
+    },
+    {
+      "id": "potato",
+      "name": "Potato",
+      "nameRu": "Картофель",
+      "emoji": "🥔",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "beans"
+      ],
+      "incompatibleWith": [
+        "tomato",
+        "cucumber"
+      ],
+      "season": "summer"
+    },
+    {
+      "id": "radish",
+      "name": "Radish",
+      "nameRu": "Редис",
+      "emoji": "🫒",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "cucumber",
+        "lettuce"
+      ],
+      "incompatibleWith": [],
+      "season": "spring"
+    },
+    {
+      "id": "raspberry",
+      "name": "Raspberry",
+      "nameRu": "Малина",
+      "emoji": "🫐",
+      "category": "berry",
+      "growthType": "bush",
+      "pack": "custom",
+      "goodNeighbors": [],
+      "incompatibleWith": [],
+      "season": "summer"
+    },
+    {
+      "id": "stardew-amaranth",
+      "name": "Amaranth",
+      "nameRu": "Капуста",
+      "emoji": "🥬",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "autumn"
+    },
+    {
+      "id": "stardew-ancient-fruit",
+      "name": "Ancient Fruit",
+      "nameRu": "Древний фрукт",
+      "emoji": "🍇",
+      "category": "fruit",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "all"
+    },
+    {
+      "id": "stardew-apple-tree",
+      "name": "Apple Tree",
+      "nameRu": "Яблоня",
+      "emoji": "🍎",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "stardew_valley",
+      "season": "autumn"
+    },
+    {
+      "id": "stardew-artichoke",
+      "name": "Artichoke",
+      "nameRu": "Артишок",
+      "emoji": "🟢",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "autumn"
+    },
+    {
+      "id": "stardew-banana-tree",
+      "name": "Banana Tree",
+      "nameRu": "Банановая пальма",
+      "emoji": "🍌",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "stardew_valley",
+      "season": "all"
+    },
+    {
+      "id": "stardew-beet",
+      "name": "Beet",
+      "nameRu": "Свёкла",
+      "emoji": "🍠",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-blackberry",
+      "name": "Blackberry",
+      "nameRu": "Ежевика",
+      "emoji": "🫐",
+      "category": "berry",
+      "growthType": "bush",
+      "pack": "stardew_valley",
+      "season": "autumn"
+    },
+    {
+      "id": "stardew-blue-jazz",
+      "name": "Blue Jazz",
+      "nameRu": "Голубая джаз",
+      "emoji": "🌸",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-blueberry",
+      "name": "Blueberry",
+      "nameRu": "Голубая ягода",
+      "emoji": "🔵",
+      "category": "berry",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-bok-choy",
+      "name": "Bok Choy",
+      "nameRu": "Бок-чой",
+      "emoji": "🥬",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "autumn"
+    },
+    {
+      "id": "stardew-cauliflower",
+      "name": "Cauliflower",
+      "nameRu": "Капуста",
+      "emoji": "🥬",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-cherry-tree",
+      "name": "Cherry Tree",
+      "nameRu": "Вишня",
+      "emoji": "🍒",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-corn",
+      "name": "Corn",
+      "nameRu": "Кукуруза",
+      "emoji": "🌽",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer,autumn"
+    },
+    {
+      "id": "stardew-cranberries",
+      "name": "Cranberries",
+      "nameRu": "Клюква",
+      "emoji": "🫐",
+      "category": "berry",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "autumn"
+    },
+    {
+      "id": "stardew-crocus",
+      "name": "Crocus",
+      "nameRu": "Крокус",
+      "emoji": "💐",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-eggplant",
+      "name": "Eggplant",
+      "nameRu": "Баклажан",
+      "emoji": "🍆",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-fairy-rose",
+      "name": "Fairy Rose",
+      "nameRu": "Космос",
+      "emoji": "🌸",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "autumn"
+    },
+    {
+      "id": "stardew-green-bean",
+      "name": "Green Bean",
+      "nameRu": "Зелень",
+      "emoji": "🌿",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-hops",
+      "name": "Hops",
+      "nameRu": "Малина",
+      "emoji": "🌿",
+      "category": "berry",
+      "growthType": "bush",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-hot-pepper",
+      "name": "Hot Pepper",
+      "nameRu": "Перец",
+      "emoji": "🌶️",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-jazz",
+      "name": "Jazz",
+      "nameRu": "Джасмин",
+      "emoji": "🌸",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-kale",
+      "name": "Kale",
+      "nameRu": "Кольраби",
+      "emoji": "🥬",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-lavender",
+      "name": "Lavender",
+      "nameRu": "Лаванда",
+      "emoji": "💜",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-leek",
+      "name": "Leek",
+      "nameRu": "Зелень",
+      "emoji": "🌿",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-mango-tree",
+      "name": "Mango Tree",
+      "nameRu": "Манго",
+      "emoji": "🥭",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-orange-tree",
+      "name": "Orange Tree",
+      "nameRu": "Апельсин",
+      "emoji": "🍊",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-parsnip",
+      "name": "Parsnip",
+      "nameRu": "Пастернак",
+      "emoji": "🥕",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-peach-tree",
+      "name": "Peach Tree",
+      "nameRu": "Персик",
+      "emoji": "🍑",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-pineapple",
+      "name": "Pineapple",
+      "nameRu": "Ананас",
+      "emoji": "🍍",
+      "category": "fruit",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "all"
+    },
+    {
+      "id": "stardew-pomegranate-tree",
+      "name": "Pomegranate Tree",
+      "nameRu": "Гранат",
+      "emoji": "🍇",
+      "category": "fruit",
+      "growthType": "bush",
+      "pack": "stardew_valley",
+      "season": "autumn"
+    },
+    {
+      "id": "stardew-poppy",
+      "name": "Poppy",
+      "nameRu": "Поппи",
+      "emoji": "🌸",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-potato",
+      "name": "Potato",
+      "nameRu": "Картофель",
+      "emoji": "🥔",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-pumpkin",
+      "name": "Pumpkin",
+      "nameRu": "Тыква",
+      "emoji": "🎃",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "autumn"
+    },
+    {
+      "id": "stardew-radish",
+      "name": "Radish",
+      "nameRu": "Редис",
+      "emoji": "🔴",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-starfruit",
+      "name": "Starfruit",
+      "nameRu": "Звездный фрукт",
+      "emoji": "⭐",
+      "category": "fruit",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-strawberry",
+      "name": "Strawberry",
+      "nameRu": "Клубника",
+      "emoji": "🍓",
+      "category": "berry",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-summer-spangle",
+      "name": "Summer Spangle",
+      "nameRu": "Спаржа",
+      "emoji": "🌺",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-sunflower",
+      "name": "Sunflower",
+      "nameRu": "Подсолнух",
+      "emoji": "🌻",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-tomato",
+      "name": "Tomato",
+      "nameRu": "Помидор",
+      "emoji": "🍅",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer"
+    },
+    {
+      "id": "stardew-tulip",
+      "name": "Tulip",
+      "nameRu": "Тюльпан",
+      "emoji": "🌷",
+      "category": "flower",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "spring"
+    },
+    {
+      "id": "stardew-wheat",
+      "name": "Wheat",
+      "nameRu": "Пшеница",
+      "emoji": "🌾",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "summer,autumn"
+    },
+    {
+      "id": "stardew-yam",
+      "name": "Yam",
+      "nameRu": "Ямс",
+      "emoji": "🍠",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "stardew_valley",
+      "season": "autumn"
+    },
+    {
+      "id": "strawberry",
+      "name": "Strawberry",
+      "nameRu": "Клубника",
+      "emoji": "🍓",
+      "category": "berry",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "lettuce",
+        "onion"
+      ],
+      "incompatibleWith": [],
+      "season": "summer"
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato",
+      "nameRu": "Помидор",
+      "emoji": "🍅",
+      "category": "vegetable",
+      "growthType": "bed",
+      "pack": "custom",
+      "goodNeighbors": [
+        "basil",
+        "onion",
+        "carrot"
+      ],
+      "incompatibleWith": [
+        "cucumber",
+        "potato"
+      ],
+      "season": "summer"
+    }
+  ],
+  "careHistory": [
+    {
+      "bedId": 4,
+      "type": "fertilize",
+      "date": 1761955200000,
+      "createdAt": 1762006863757,
+      "id": 1
+    },
+    {
+      "bedId": 5,
+      "type": "plant",
+      "date": 1759276800000,
+      "createdAt": 1762011401970,
+      "id": 3
+    },
+    {
+      "bedId": 5,
+      "type": "plant",
+      "date": 1761955200000,
+      "createdAt": 1762011619597,
+      "id": 4
+    },
+    {
+      "bedId": 5,
+      "type": "plant",
+      "date": 1761955200000,
+      "createdAt": 1762011632133,
+      "id": 5
+    },
+    {
+      "bedId": 5,
+      "type": "water",
+      "date": 1761955200000,
+      "createdAt": 1762011662218,
+      "id": 6
+    }
+  ],
+  "plans": [],
+  "exportDate": "2025-11-01T15:41:26.966Z"
+}

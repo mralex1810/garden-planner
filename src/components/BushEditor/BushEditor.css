@@ -1,0 +1,159 @@
+.bush-editor {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.bush-editor-modal .bush-editor {
+  margin-top: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.bush-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.bush-editor-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.close-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  color: #666;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: #e0e0e0;
+}
+
+.bush-editor-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bush-section h4 {
+  margin-bottom: 0.75rem;
+  color: #555;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.current-plant {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.plant-emoji {
+  font-size: 1.5rem;
+}
+
+.plant-name {
+  flex: 1;
+  font-weight: 500;
+}
+
+.change-plant-btn {
+  padding: 0.4rem 0.8rem;
+  background: #4a7c59;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.change-plant-btn:hover {
+  background: #5a9c6b;
+}
+
+.select-plant-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #f0f8f0;
+  border: 2px dashed #4a7c59;
+  border-radius: 4px;
+  color: #4a7c59;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.select-plant-btn:hover {
+  background: #e8f5e9;
+}
+
+.planned-plant {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #fff9e6;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+}
+
+.planned-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.plan-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.plan-form select,
+.plan-form input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.plan-form button {
+  padding: 0.5rem;
+  background: #ffc107;
+  color: #333;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.plan-form button:hover {
+  background: #ffb300;
+}
+
+.bush-section textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.bush-section textarea:focus {
+  outline: none;
+  border-color: #4a7c59;
+}
+
