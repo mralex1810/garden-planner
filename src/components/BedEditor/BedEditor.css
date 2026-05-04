@@ -156,3 +156,26 @@
   outline: none;
   border-color: #4a7c59;
 }
+
+.clear-plant-btn {
+  padding: 0.4rem 0.8rem;
+  background: #e57373;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.clear-plant-btn:hover {
+  background: #ef5350;
+}
+
+.planned-plant {
+  flex-wrap: wrap;
+}
+
+.planned-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  width: 100%;
+}

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { db, Bush, Plant } from '../../db'
+import { db, Bush, Plant, GardenObject } from '../../db'
 import PlantSelector from '../PlantSelector/PlantSelector'
 import HistoryTimeline from '../HistoryTimeline/HistoryTimeline'
 import './BushEditor.css'
@@ -12,10 +12,12 @@ interface BushEditorProps {
 
 export default function BushEditor({ bushId, onClose, onUpdate }: BushEditorProps) {
   const [bush, setBush] = useState<Bush | null>(null)
+  const [gardenObject, setGardenObject] = useState<GardenObject | null>(null)
   const [plants, setPlants] = useState<Plant[]>([])
   const [selectedPlant, setSelectedPlant] = useState<Plant | null>(null)
   const [showPlantSelector, setShowPlantSelector] = useState(false)
   const [notes, setNotes] = useState('')
+  const [editingPlanned, setEditingPlanned] = useState(false)
 
   const loadPlants = useCallback(async () => {
     const allPlants = await db.plants.toArray()
@@ -52,10 +54,17 @@ export default function BushEditor({ bushId, onClose, onUpdate }: BushEditorProp
     if (bushData) {
       setBush(bushData)
       setNotes(bushData.notes || '')
-      
+
+      if (bushData.objectId) {
+        const obj = await db.objects.get(bushData.objectId)
+        setGardenObject(obj || null)
+      }
+
       if (bushData.plantId) {
         const plant = await db.plants.get(bushData.plantId)
         setSelectedPlant(plant || null)
+      } else {
+        setSelectedPlant(null)
       }
     }
   }
@@ -85,10 +94,31 @@ export default function BushEditor({ bushId, onClose, onUpdate }: BushEditorProp
     onUpdate()
   }
 
+  const handleClearPlant = async () => {
+    await db.bushes.update(bushId, {
+      plantId: undefined,
+      updatedAt: Date.now()
+    })
+    setSelectedPlant(null)
+    onUpdate()
+    window.dispatchEvent(new CustomEvent('gardenUpdate'))
+  }
+
   const handlePlanPlant = async (plantId: string, plannedDate: number) => {
     await db.bushes.update(bushId, {
       plannedPlantId: plantId,
       plannedDate,
+      updatedAt: Date.now()
+    })
+    setEditingPlanned(false)
+    onUpdate()
+    loadBush()
+  }
+
+  const handleClearPlanned = async () => {
+    await db.bushes.update(bushId, {
+      plannedPlantId: undefined,
+      plannedDate: undefined,
       updatedAt: Date.now()
     })
     onUpdate()
@@ -99,10 +129,12 @@ export default function BushEditor({ bushId, onClose, onUpdate }: BushEditorProp
     return <div className="bush-editor">Загрузка...</div>
   }
 
+  const objectName = gardenObject?.name || `Куст #${bush.objectId}`
+
   return (
     <div className="bush-editor">
       <div className="bush-editor-header">
-        <h3>Редактирование куста</h3>
+        <h3>Редактирование куста — {objectName}</h3>
         <button className="close-btn" onClick={onClose}>✕</button>
       </div>
 
@@ -119,6 +151,12 @@ export default function BushEditor({ bushId, onClose, onUpdate }: BushEditorProp
               >
                 Изменить
               </button>
+              <button
+                className="clear-plant-btn"
+                onClick={handleClearPlant}
+              >
+                Очистить
+              </button>
             </div>
           ) : (
             <button
@@ -132,15 +170,23 @@ export default function BushEditor({ bushId, onClose, onUpdate }: BushEditorProp
 
         <div className="bush-section">
           <h4>Запланированная посадка</h4>
-          {bush.plannedPlantId && bush.plannedDate ? (
+          {bush.plannedPlantId && bush.plannedDate && !editingPlanned ? (
             <div className="planned-plant">
               <span>
-                {plants.find(p => p.id === bush.plannedPlantId)?.emoji} 
+                {plants.find(p => p.id === bush.plannedPlantId)?.emoji}{' '}
                 {plants.find(p => p.id === bush.plannedPlantId)?.nameRu}
               </span>
               <span className="planned-date">
                 {new Date(bush.plannedDate).toLocaleDateString('ru-RU')}
               </span>
+              <div className="planned-actions">
+                <button className="change-plant-btn" onClick={() => setEditingPlanned(true)}>
+                  Изменить
+                </button>
+                <button className="clear-plant-btn" onClick={handleClearPlanned}>
+                  Удалить
+                </button>
+              </div>
             </div>
           ) : (
             <PlanPlantForm bushId={bushId} onPlan={handlePlanPlant} plants={plants} />
@@ -160,7 +206,7 @@ export default function BushEditor({ bushId, onClose, onUpdate }: BushEditorProp
 
         <div className="bush-section">
           <h4>История ухода</h4>
-          <HistoryTimeline bedId={bushId} />
+          <HistoryTimeline objectId={bush.objectId} year={bush.year} />
         </div>
       </div>
 
@@ -176,7 +222,7 @@ export default function BushEditor({ bushId, onClose, onUpdate }: BushEditorProp
   )
 }
 
-function PlanPlantForm({ bushId, onPlan, plants }: { bushId: number; onPlan: (plantId: string, date: number) => void; plants: Plant[] }) {
+function PlanPlantForm({ onPlan, plants }: { bushId: number; onPlan: (plantId: string, date: number) => void; plants: Plant[] }) {
   const [plantId, setPlantId] = useState('')
   const [date, setDate] = useState(new Date().toISOString().split('T')[0])
 

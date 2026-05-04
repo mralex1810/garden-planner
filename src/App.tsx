@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react'
 import { db, Garden } from './db'
 import GardenCanvas from './components/GardenCanvas/GardenCanvas'
 import Sidebar from './components/Sidebar/Sidebar'
+import YearTabs from './components/YearTabs/YearTabs'
 import './App.css'
 
 function App() {
   const [garden, setGarden] = useState<Garden | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [activeYear, setActiveYear] = useState(new Date().getFullYear())
 
   useEffect(() => {
     loadGarden()
@@ -60,12 +62,14 @@ function App() {
         <h1>🌱 Планировщик огорода</h1>
         <div className="header-info">
           <span>Участок: {garden.width}×{garden.height} м</span>
+          <span className="header-year">{activeYear} г.</span>
         </div>
       </header>
       <div className="app-content">
-        <GardenCanvas garden={garden} />
-        <Sidebar garden={garden} onUpdateGarden={updateGarden} />
+        <GardenCanvas garden={garden} activeYear={activeYear} />
+        <Sidebar garden={garden} onUpdateGarden={updateGarden} activeYear={activeYear} />
       </div>
+      <YearTabs activeYear={activeYear} onYearChange={setActiveYear} />
     </div>
   )
 }

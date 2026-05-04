@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { db, Bed, Plant, GardenObject, CareHistory, PlantingPlan } from '../../db'
+import { db, Bed, Plant, GardenObject } from '../../db'
 import './Advisor.css'
 
 export default function Advisor() {
@@ -49,7 +49,7 @@ export default function Advisor() {
       const newWarnings: string[] = []
 
       // Проверка совместимости соседей
-      bedsWithDetails.forEach(({ bed, plant, neighbors }) => {
+      bedsWithDetails.forEach(({ plant, neighbors }) => {
         if (!plant) return
 
         neighbors.forEach(neighbor => {

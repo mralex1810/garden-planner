@@ -14,6 +14,7 @@ type FabricObjectWithData = fabric.Object & {
 
 interface GardenCanvasProps {
   garden: { width: number; height: number }
+  activeYear: number
 }
 
 const SCALE = 10 // пикселей на метр
@@ -23,13 +24,15 @@ const objectTypes = {
   greenhouse: { color: '#2E7D32', strokeColor: '#1B5E20', emoji: '🏠', name: 'Теплица' },
   hotbed: { color: '#66BB6A', strokeColor: '#388E3C', emoji: '🌱', name: 'Парник' },
   barrel: { color: '#1976D2', strokeColor: '#0D47A1', emoji: '🪣', name: 'Бочка для воды' },
-  well: { color: '#1565C0', strokeColor: '#0D47A1', emoji: '🚰', name: 'Колодец' },
+  well: { color: '#1565C0', strokeColor: '#0D47A1', emoji: '💧', name: 'Вода' },
   path: { color: '#757575', strokeColor: '#424242', emoji: '🛤️', name: 'Дорожка' },
   bush: { color: '#1B5E20', strokeColor: '#0D4014', emoji: '🌳', name: 'Куст' },
-  rest: { color: '#F57C00', strokeColor: '#E65100', emoji: '🪑', name: 'Зона отдыха' }
+  rest: { color: '#F57C00', strokeColor: '#E65100', emoji: '🪑', name: 'Зона отдыха' },
+  building: { color: '#795548', strokeColor: '#5D4037', emoji: '🏗️', name: 'Постройка' },
+  flowers: { color: '#E91E63', strokeColor: '#C2185B', emoji: '🌸', name: 'Цветы' }
 }
 
-export default function GardenCanvas({ garden }: GardenCanvasProps) {
+export default function GardenCanvas({ garden, activeYear }: GardenCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const fabricCanvasRef = useRef<fabric.Canvas | null>(null)
   const [canvasReady, setCanvasReady] = useState(false)
@@ -113,7 +116,27 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
       }
     )
     
-    return { frameRect, label, frameLeft, frameTop }
+    // Create dot grid at 1m intervals
+    const dots: fabric.Circle[] = []
+    for (let x = 0; x <= garden.width; x++) {
+      for (let y = 0; y <= garden.height; y++) {
+        const dot = new fabric.Circle({
+          left: frameLeft + x * SCALE,
+          top: frameTop + y * SCALE,
+          radius: 1,
+          fill: '#ccc',
+          originX: 'center',
+          originY: 'center',
+          selectable: false,
+          evented: false,
+          hoverCursor: 'default',
+          name: 'grid-dot'
+        })
+        dots.push(dot)
+      }
+    }
+
+    return { frameRect, label, frameLeft, frameTop, dots }
   }
 
   useEffect(() => {
@@ -543,6 +566,33 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
     canvas.on('object:moving', handleObjectMoving)
     canvas.on('object:scaling', handleObjectScaling)
 
+    const handleDblClick = async (opt: any) => {
+      const target = opt.target as FabricObjectWithData
+      if (!target?.data?.id) return
+      const objectId = target.data.id
+      const objType = target.data.type
+      if (objType === 'bed') {
+        let bed = await db.beds.where({ objectId, year: activeYear }).first()
+        if (!bed) {
+          const newId = await db.beds.add({ objectId, year: activeYear, createdAt: Date.now(), updatedAt: Date.now() })
+          bed = await db.beds.get(newId as number) ?? undefined
+        }
+        if (bed?.id) {
+          window.dispatchEvent(new CustomEvent('openBedEditor', { detail: { bedId: bed.id } }))
+        }
+      } else if (objType === 'bush') {
+        let bush = await db.bushes.where({ objectId, year: activeYear }).first()
+        if (!bush) {
+          const newId = await db.bushes.add({ objectId, year: activeYear, createdAt: Date.now(), updatedAt: Date.now() })
+          bush = await db.bushes.get(newId as number) ?? undefined
+        }
+        if (bush?.id) {
+          window.dispatchEvent(new CustomEvent('openBushEditor', { detail: { bushId: bush.id } }))
+        }
+      }
+    }
+    canvas.on('mouse:dblclick', handleDblClick)
+
     // Handle mouse wheel zoom
     const handleWheel = (e: WheelEvent) => {
       if (!canvas) return
@@ -604,7 +654,8 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
         canvas.off('object:modified', handleObjectModified)
         canvas.off('object:moving', handleObjectMoving)
         canvas.off('object:scaling', handleObjectScaling)
-        
+        canvas.off('mouse:dblclick', handleDblClick)
+
         // Remove wheel event listener
         const canvasElement = canvas.getElement()
         canvasElement.removeEventListener('wheel', handleWheel)
@@ -618,7 +669,14 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
         // Canvas may already be disposed
       }
     }
-  }, [garden, placementMode, selectedType, canvasReady]) // Re-setup handlers when garden, placement mode, selected type, or canvas readiness changes
+  }, [garden, placementMode, selectedType, canvasReady, activeYear])
+
+  // Reload objects when activeYear changes
+  useEffect(() => {
+    if (fabricCanvasRef.current && canvasReady) {
+      loadObjects(fabricCanvasRef.current).catch(console.error)
+    }
+  }, [activeYear, canvasReady])
 
   // Listen for garden updates to reload objects
   useEffect(() => {
@@ -704,15 +762,16 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
       
       // Delete from database
       await db.objects.delete(id)
-      
+
+      // Delete related care history (keyed by objectId)
+      await db.careHistory.where('bedId').equals(id).delete()
+
       // Delete related bed if exists
       const bed = await db.beds.where('objectId').equals(id).first()
       if (bed?.id) {
         await db.beds.delete(bed.id)
-        // Delete related care history
-        await db.careHistory.where('bedId').equals(bed.id).delete()
       }
-      
+
       // Delete related bush if exists
       const bush = await db.bushes.where('objectId').equals(id).first()
       if (bush?.id) {
@@ -808,8 +867,8 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
       }
 
       const allObjects = await db.objects.toArray()
-      const allBeds = await db.beds.toArray()
-      const allBushes = await db.bushes.toArray()
+      const allBeds = await db.beds.where('year').equals(activeYear).toArray()
+      const allBushes = await db.bushes.where('year').equals(activeYear).toArray()
       const allPlants = await db.plants.toArray()
       
       setObjects(allObjects)
@@ -819,8 +878,8 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
         const existingObjects = canvas.getObjects()
         existingObjects.forEach((obj: any) => {
           // Don't remove frame objects (they have selectable: false and evented: false)
-          if (obj.name === 'garden-frame' || obj.name === 'garden-label') {
-            return // Skip frame objects
+          if (obj.name === 'garden-frame' || obj.name === 'garden-label' || obj.name === 'grid-dot') {
+            return // Skip frame and grid objects
           }
           try {
             canvas.remove(obj)
@@ -843,9 +902,13 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
         obj.name === 'garden-label'
       ) as fabric.Text | undefined
       
+      // Remove old grid dots
+      canvas.getObjects().filter((obj: any) => obj.name === 'grid-dot').forEach((obj: any) => {
+        canvas.remove(obj)
+      })
+
       if (existingFrame && existingLabel) {
-        // Update existing frame position
-        const { frameRect, label } = createGardenFrame(canvas)
+        const { frameRect, label, dots } = createGardenFrame(canvas)
         existingFrame.set({
           left: frameRect.left,
           top: frameRect.top,
@@ -857,13 +920,14 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
           top: label.top,
           text: label.text
         })
+        dots.forEach(dot => { canvas.add(dot); canvas.sendToBack(dot) })
         canvas.sendToBack(existingFrame)
         canvas.sendToBack(existingLabel)
       } else {
-        // Create new frame
-        const { frameRect, label } = createGardenFrame(canvas)
+        const { frameRect, label, dots } = createGardenFrame(canvas)
         canvas.add(frameRect)
         canvas.add(label)
+        dots.forEach(dot => { canvas.add(dot); canvas.sendToBack(dot) })
         canvas.sendToBack(frameRect)
         canvas.sendToBack(label)
       }
@@ -908,8 +972,8 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
           opacity: 0.9,
           stroke: objectTypes[obj.type].strokeColor || '#333',
           strokeWidth: 3,
-          rx: 2,
-          ry: 2,
+          rx: obj.type === 'bed' ? 5 : 2,
+          ry: obj.type === 'bed' ? 5 : 2,
           selectable: true,
           hasControls: true,
           hasBorders: true,
@@ -1071,15 +1135,17 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
       if (obj.type === 'bed') {
         await db.beds.add({
           objectId: id as number,
+          year: activeYear,
           createdAt: Date.now(),
           updatedAt: Date.now()
         })
       }
-      
+
       // If it's a bush, create bush record
       if (obj.type === 'bush') {
         await db.bushes.add({
           objectId: id as number,
+          year: activeYear,
           createdAt: Date.now(),
           updatedAt: Date.now()
         })
@@ -1191,15 +1257,16 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
       
       if (objectId !== undefined) {
         await db.objects.delete(objectId)
-        
+
+        // Delete related care history (keyed by objectId)
+        await db.careHistory.where('bedId').equals(objectId).delete()
+
         // Delete related bed if exists
         const bed = await db.beds.where('objectId').equals(objectId).first()
         if (bed?.id) {
           await db.beds.delete(bed.id)
-          // Delete related care history
-          await db.careHistory.where('bedId').equals(bed.id).delete()
         }
-        
+
         // Delete related bush if exists
         const bush = await db.bushes.where('objectId').equals(objectId).first()
         if (bush?.id) {
@@ -1535,7 +1602,7 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Высота (м):</label>
+                  <label>Длина (м):</label>
                   <input
                     type="number"
                     step="0.1"
@@ -1650,7 +1717,7 @@ export default function GardenCanvas({ garden }: GardenCanvasProps) {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Высота (м):</label>
+                  <label>Длина (м):</label>
                   <input
                     type="number"
                     step="0.1"

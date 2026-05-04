@@ -266,6 +266,12 @@ function PlantForm({ plant, onClose, onSave, allPlants }: PlantFormProps) {
     harvestMonths: plant?.harvestMonths || [],
     comment: plant?.comment || ''
   })
+  const [plantingMonthsText, setPlantingMonthsText] = useState(plant?.plantingMonths?.join(', ') || '')
+  const [harvestMonthsText, setHarvestMonthsText] = useState(plant?.harvestMonths?.join(', ') || '')
+
+  const parseMonths = (text: string): number[] => {
+    return text.split(',').map(m => parseInt(m.trim())).filter(m => !isNaN(m) && m >= 1 && m <= 12)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -296,8 +302,8 @@ function PlantForm({ plant, onClose, onSave, allPlants }: PlantFormProps) {
         season: formData.season || undefined,
         goodNeighbors: formData.goodNeighbors || undefined,
         incompatibleWith: formData.incompatibleWith || undefined,
-        plantingMonths: formData.plantingMonths || undefined,
-        harvestMonths: formData.harvestMonths || undefined,
+        plantingMonths: parseMonths(plantingMonthsText).length > 0 ? parseMonths(plantingMonthsText) : undefined,
+        harvestMonths: parseMonths(harvestMonthsText).length > 0 ? parseMonths(harvestMonthsText) : undefined,
         comment: formData.comment || undefined
       }
 
@@ -432,14 +438,8 @@ function PlantForm({ plant, onClose, onSave, allPlants }: PlantFormProps) {
               <label>Месяцы посадки (1-12, через запятую)</label>
               <input
                 type="text"
-                value={formData.plantingMonths?.join(', ') || ''}
-                onChange={(e) => {
-                  const months = e.target.value
-                    .split(',')
-                    .map(m => parseInt(m.trim()))
-                    .filter(m => !isNaN(m) && m >= 1 && m <= 12)
-                  setFormData({ ...formData, plantingMonths: months.length > 0 ? months : undefined })
-                }}
+                value={plantingMonthsText}
+                onChange={(e) => setPlantingMonthsText(e.target.value)}
                 placeholder="4, 5, 9"
               />
             </div>
@@ -450,14 +450,8 @@ function PlantForm({ plant, onClose, onSave, allPlants }: PlantFormProps) {
               <label>Месяцы сбора урожая (1-12, через запятую)</label>
               <input
                 type="text"
-                value={formData.harvestMonths?.join(', ') || ''}
-                onChange={(e) => {
-                  const months = e.target.value
-                    .split(',')
-                    .map(m => parseInt(m.trim()))
-                    .filter(m => !isNaN(m) && m >= 1 && m <= 12)
-                  setFormData({ ...formData, harvestMonths: months.length > 0 ? months : undefined })
-                }}
+                value={harvestMonthsText}
+                onChange={(e) => setHarvestMonthsText(e.target.value)}
                 placeholder="7, 8, 9"
               />
             </div>

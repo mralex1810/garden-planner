@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { db, Bed, Plant } from '../../db'
+import { db, Bed, Plant, GardenObject } from '../../db'
 import PlantSelector from '../PlantSelector/PlantSelector'
 import HistoryTimeline from '../HistoryTimeline/HistoryTimeline'
 import './BedEditor.css'
@@ -12,10 +12,12 @@ interface BedEditorProps {
 
 export default function BedEditor({ bedId, onClose, onUpdate }: BedEditorProps) {
   const [bed, setBed] = useState<Bed | null>(null)
+  const [gardenObject, setGardenObject] = useState<GardenObject | null>(null)
   const [plants, setPlants] = useState<Plant[]>([])
   const [selectedPlant, setSelectedPlant] = useState<Plant | null>(null)
   const [showPlantSelector, setShowPlantSelector] = useState(false)
   const [notes, setNotes] = useState('')
+  const [editingPlanned, setEditingPlanned] = useState(false)
 
   const loadPlants = useCallback(async () => {
     const allPlants = await db.plants.toArray()
@@ -52,10 +54,17 @@ export default function BedEditor({ bedId, onClose, onUpdate }: BedEditorProps) 
     if (bedData) {
       setBed(bedData)
       setNotes(bedData.notes || '')
-      
+
+      if (bedData.objectId) {
+        const obj = await db.objects.get(bedData.objectId)
+        setGardenObject(obj || null)
+      }
+
       if (bedData.plantId) {
         const plant = await db.plants.get(bedData.plantId)
         setSelectedPlant(plant || null)
+      } else {
+        setSelectedPlant(null)
       }
     }
   }
@@ -85,10 +94,31 @@ export default function BedEditor({ bedId, onClose, onUpdate }: BedEditorProps) 
     onUpdate()
   }
 
+  const handleClearPlant = async () => {
+    await db.beds.update(bedId, {
+      plantId: undefined,
+      updatedAt: Date.now()
+    })
+    setSelectedPlant(null)
+    onUpdate()
+    window.dispatchEvent(new CustomEvent('gardenUpdate'))
+  }
+
   const handlePlanPlant = async (plantId: string, plannedDate: number) => {
     await db.beds.update(bedId, {
       plannedPlantId: plantId,
       plannedDate,
+      updatedAt: Date.now()
+    })
+    setEditingPlanned(false)
+    onUpdate()
+    loadBed()
+  }
+
+  const handleClearPlanned = async () => {
+    await db.beds.update(bedId, {
+      plannedPlantId: undefined,
+      plannedDate: undefined,
       updatedAt: Date.now()
     })
     onUpdate()
@@ -99,10 +129,12 @@ export default function BedEditor({ bedId, onClose, onUpdate }: BedEditorProps) 
     return <div className="bed-editor">Загрузка...</div>
   }
 
+  const objectName = gardenObject?.name || `Грядка #${bed.objectId}`
+
   return (
     <div className="bed-editor">
       <div className="bed-editor-header">
-        <h3>Редактирование грядки</h3>
+        <h3>Редактирование грядки — {objectName}</h3>
         <button className="close-btn" onClick={onClose}>✕</button>
       </div>
 
@@ -119,6 +151,12 @@ export default function BedEditor({ bedId, onClose, onUpdate }: BedEditorProps) 
               >
                 Изменить
               </button>
+              <button
+                className="clear-plant-btn"
+                onClick={handleClearPlant}
+              >
+                Очистить
+              </button>
             </div>
           ) : (
             <button
@@ -132,15 +170,23 @@ export default function BedEditor({ bedId, onClose, onUpdate }: BedEditorProps) 
 
         <div className="bed-section">
           <h4>Запланированная посадка</h4>
-          {bed.plannedPlantId && bed.plannedDate ? (
+          {bed.plannedPlantId && bed.plannedDate && !editingPlanned ? (
             <div className="planned-plant">
               <span>
-                {plants.find(p => p.id === bed.plannedPlantId)?.emoji} 
+                {plants.find(p => p.id === bed.plannedPlantId)?.emoji}{' '}
                 {plants.find(p => p.id === bed.plannedPlantId)?.nameRu}
               </span>
               <span className="planned-date">
                 {new Date(bed.plannedDate).toLocaleDateString('ru-RU')}
               </span>
+              <div className="planned-actions">
+                <button className="change-plant-btn" onClick={() => setEditingPlanned(true)}>
+                  Изменить
+                </button>
+                <button className="clear-plant-btn" onClick={handleClearPlanned}>
+                  Удалить
+                </button>
+              </div>
             </div>
           ) : (
             <PlanPlantForm bedId={bedId} onPlan={handlePlanPlant} plants={plants} />
@@ -160,7 +206,7 @@ export default function BedEditor({ bedId, onClose, onUpdate }: BedEditorProps) 
 
         <div className="bed-section">
           <h4>История ухода</h4>
-          <HistoryTimeline bedId={bedId} />
+          <HistoryTimeline objectId={bed.objectId} year={bed.year} />
         </div>
       </div>
 
@@ -176,7 +222,7 @@ export default function BedEditor({ bedId, onClose, onUpdate }: BedEditorProps) 
   )
 }
 
-function PlanPlantForm({ bedId, onPlan, plants }: { bedId: number; onPlan: (plantId: string, date: number) => void; plants: Plant[] }) {
+function PlanPlantForm({ onPlan, plants }: { bedId: number; onPlan: (plantId: string, date: number) => void; plants: Plant[] }) {
   const [plantId, setPlantId] = useState('')
   const [date, setDate] = useState(new Date().toISOString().split('T')[0])
 

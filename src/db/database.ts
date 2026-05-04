@@ -9,7 +9,7 @@ export interface Garden {
 
 export interface GardenObject {
   id?: number
-  type: 'bed' | 'greenhouse' | 'hotbed' | 'barrel' | 'well' | 'path' | 'bush' | 'rest'
+  type: 'bed' | 'greenhouse' | 'hotbed' | 'barrel' | 'well' | 'path' | 'bush' | 'rest' | 'building' | 'flowers'
   x: number
   y: number
   width: number
@@ -24,6 +24,7 @@ export interface GardenObject {
 export interface Bed {
   id?: number
   objectId: number // ссылка на GardenObject
+  year: number // год посадки
   plantId?: string // ссылка на Plant
   plannedPlantId?: string // запланированное растение
   plannedDate?: number // дата планируемой посадки
@@ -35,6 +36,7 @@ export interface Bed {
 export interface Bush {
   id?: number
   objectId: number // ссылка на GardenObject
+  year: number // год посадки
   plantId?: string // ссылка на Plant
   plannedPlantId?: string // запланированное растение
   plannedDate?: number // дата планируемой посадки
@@ -62,7 +64,7 @@ export interface Plant {
 export interface CareHistory {
   id?: number
   bedId: number
-  type: 'water' | 'weed' | 'fertilize' | 'harvest' | 'plant'
+  type: 'water' | 'weed' | 'fertilize' | 'harvest' | 'plant' | 'other'
   date: number
   notes?: string
   createdAt: number
@@ -96,6 +98,25 @@ class GardenDatabase extends Dexie {
       plants: 'id, category, pack, growthType',
       careHistory: '++id, bedId, date',
       plans: '++id, bedId, plannedDate'
+    })
+    this.version(3).stores({
+      garden: '++id',
+      objects: '++id, type, createdAt',
+      beds: '++id, objectId, plantId, year, [objectId+year]',
+      bushes: '++id, objectId, plantId, year, [objectId+year]',
+      plants: 'id, category, pack, growthType',
+      careHistory: '++id, bedId, date',
+      plans: '++id, bedId, plannedDate'
+    }).upgrade(tx => {
+      const currentYear = new Date().getFullYear()
+      return Promise.all([
+        tx.table('beds').toCollection().modify(bed => {
+          if (!bed.year) bed.year = currentYear
+        }),
+        tx.table('bushes').toCollection().modify(bush => {
+          if (!bush.year) bush.year = currentYear
+        })
+      ])
     })
   }
 }

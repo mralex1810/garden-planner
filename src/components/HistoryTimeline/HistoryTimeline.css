@@ -81,6 +81,7 @@
   color: #666;
 }
 
+.edit-history-btn,
 .delete-history-btn {
   width: 20px;
   height: 20px;
@@ -92,6 +93,11 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
+}
+
+.edit-history-btn:hover {
+  background: #e0e0e0;
+  color: #1976d2;
 }
 
 .delete-history-btn:hover {

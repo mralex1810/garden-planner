@@ -8,22 +8,25 @@ import './Sidebar.css'
 interface SidebarProps {
   garden: Garden
   onUpdateGarden: (updates: Partial<Garden>) => void
+  activeYear: number
 }
 
 type Tab = 'beds' | 'advisor' | 'sync' | 'plants' | 'settings'
 
-const objectTypes = {
+const objectTypes: Record<string, { color: string; strokeColor: string; emoji: string; name: string }> = {
   bed: { color: '#8B4513', strokeColor: '#654321', emoji: '🟫', name: 'Грядка' },
   greenhouse: { color: '#2E7D32', strokeColor: '#1B5E20', emoji: '🏠', name: 'Теплица' },
   hotbed: { color: '#66BB6A', strokeColor: '#388E3C', emoji: '🌱', name: 'Парник' },
   barrel: { color: '#1976D2', strokeColor: '#0D47A1', emoji: '🪣', name: 'Бочка для воды' },
-  well: { color: '#1565C0', strokeColor: '#0D47A1', emoji: '🚰', name: 'Колодец' },
+  well: { color: '#1565C0', strokeColor: '#0D47A1', emoji: '💧', name: 'Вода' },
   path: { color: '#757575', strokeColor: '#424242', emoji: '🛤️', name: 'Дорожка' },
   bush: { color: '#1B5E20', strokeColor: '#0D4014', emoji: '🌳', name: 'Куст' },
-  rest: { color: '#F57C00', strokeColor: '#E65100', emoji: '🪑', name: 'Зона отдыха' }
+  rest: { color: '#F57C00', strokeColor: '#E65100', emoji: '🪑', name: 'Зона отдыха' },
+  building: { color: '#795548', strokeColor: '#5D4037', emoji: '🏗️', name: 'Постройка' },
+  flowers: { color: '#E91E63', strokeColor: '#C2185B', emoji: '🌸', name: 'Цветы' }
 }
 
-export default function Sidebar({ garden, onUpdateGarden }: SidebarProps) {
+export default function Sidebar({ garden, onUpdateGarden, activeYear }: SidebarProps) {
   const [activeTab, setActiveTab] = useState<Tab>('beds')
   const [objects, setObjects] = useState<GardenObject[]>([])
   const [beds, setBeds] = useState<Map<number, Bed>>(new Map())
@@ -36,8 +39,11 @@ export default function Sidebar({ garden, onUpdateGarden }: SidebarProps) {
 
   useEffect(() => {
     loadObjects()
-    
-    // Listen for object updates
+  }, [activeYear])
+
+  useEffect(() => {
+    loadObjects()
+
     const handleObjectsUpdate = async () => {
       await loadObjects()
       // After loading, check if selectedObjectId still exists and update selectedBed if needed
@@ -91,9 +97,8 @@ export default function Sidebar({ garden, onUpdateGarden }: SidebarProps) {
   const loadObjects = async () => {
     const allObjects = await db.objects.toArray()
     setObjects(allObjects)
-    
-    // Also load beds for bed-specific operations
-    const allBeds = await db.beds.toArray()
+
+    const allBeds = await db.beds.where('year').equals(activeYear).toArray()
     const bedsMap = new Map<number, Bed>()
     allBeds.forEach(bed => {
       if (bed.objectId) {
@@ -101,9 +106,8 @@ export default function Sidebar({ garden, onUpdateGarden }: SidebarProps) {
       }
     })
     setBeds(bedsMap)
-    
-    // Load bushes
-    const allBushes = await db.bushes.toArray()
+
+    const allBushes = await db.bushes.where('year').equals(activeYear).toArray()
     const bushesMap = new Map<number, Bush>()
     allBushes.forEach(bush => {
       if (bush.objectId) {
@@ -111,8 +115,7 @@ export default function Sidebar({ garden, onUpdateGarden }: SidebarProps) {
       }
     })
     setBushes(bushesMap)
-    
-    // Load plants for emoji lookup
+
     const allPlants = await db.plants.toArray()
     const plantsMap = new Map<string, Plant>()
     allPlants.forEach(plant => {
@@ -196,16 +199,15 @@ export default function Sidebar({ garden, onUpdateGarden }: SidebarProps) {
     if (!object.id) return
 
     let bush = bushes.get(object.id)
-    
-    // If bush doesn't exist, create it
+
     if (!bush) {
-      const newBushId = await db.bushes.add({
+      await db.bushes.add({
         objectId: object.id,
+        year: activeYear,
         createdAt: Date.now(),
         updatedAt: Date.now()
       })
-      // Reload bushes map
-      const allBushes = await db.bushes.toArray()
+      const allBushes = await db.bushes.where('year').equals(activeYear).toArray()
       const bushesMap = new Map<number, Bush>()
       allBushes.forEach(b => {
         if (b.objectId) {
@@ -214,7 +216,6 @@ export default function Sidebar({ garden, onUpdateGarden }: SidebarProps) {
       })
       setBushes(bushesMap)
       bush = bushesMap.get(object.id)
-      // Notify of update
       window.dispatchEvent(new CustomEvent('objectsUpdate'))
     }
 
@@ -323,7 +324,7 @@ export default function Sidebar({ garden, onUpdateGarden }: SidebarProps) {
                       </div>
                       <div className="object-footer">
                         <span className="object-location">
-                          ({object.x.toFixed(1)}, {object.y.toFixed(1)})
+                          {(object.width * object.height).toFixed(1)} м²
                         </span>
                         {isBed && bed?.id && (
                           <button
@@ -338,7 +339,7 @@ export default function Sidebar({ garden, onUpdateGarden }: SidebarProps) {
                             className="object-action-btn"
                             onClick={(e) => handleBushEditorOpen(object, e)}
                           >
-                            Открыть грядку
+                            Открыть куст
                           </button>
                         )}
                       </div>
